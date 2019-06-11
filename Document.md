@@ -2,8 +2,9 @@
 [建立虛擬機](#建立虛擬機)  
 [啟用SCL](#啟用SCL)  
 [CentOS7上安裝Python3](#CentOS7上安裝Python3)  
-[創建虛擬環境](創建虛擬環境)  
-[CentOS上安裝Pip](CentOS上安裝Pip)  
+[創建虛擬環境](#創建虛擬環境)  
+[CentOS上安裝Pip](#CentOS上安裝Pip)  
+[Install Apache on CentOS 7](#Install Apache on CentOS 7)  
 [參考資料](#參考資料)  
 
 <a name="建立虛擬機"/>
@@ -98,6 +99,20 @@ pip 19.1.1 from /usr/lib/python2.7/site-packages/pip (python 2.7)
 # pip uninstall XXX
 # pip search "XXX"
 ```
+
+<a name="Install Apache on CentOS 7"/>
+
+## Install Apache on CentOS 7
+```bash
+# sudo yum install httpd
+# sudo systemctl enable httpd
+# sudo systemctl start httpd
+
+# sudo firewall-cmd --permanent --zone=public --add-service=http
+# sudo firewall-cmd --reload
+```
+
+
 
 
 
