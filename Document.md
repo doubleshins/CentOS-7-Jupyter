@@ -100,9 +100,9 @@ pip 19.1.1 from /usr/lib/python2.7/site-packages/pip (python 2.7)
 # pip search "XXX"
 ```
 
-<a name="Install Apache on CentOS 7"/>
+<a name="Apache"/>
 
-## Install Apache on CentOS 7
+## Apache
 ```bash
 # sudo yum install httpd
 # sudo systemctl enable httpd
