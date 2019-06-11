@@ -1,7 +1,4 @@
 # 目錄
-[建立虛擬機](#建立虛擬機)
-[啟用SCL](#啟用SCL)
-[參考資料](#參考資料)
 
 <a name="建立虛擬機"/>
 
@@ -37,7 +34,12 @@ Python 2.7.5
 # sudo yum install rh-python36
 # python --version
 Python 2.7.5
+shell中的默認Python版本
+
+To access Python 3.6 you need to launch a new shell instance using the Software Collection scl tool:
+scl enable rh-python36 bash
 ```
+
 
 
 
