@@ -3,6 +3,7 @@
 [啟用SCL](#啟用SCL)  
 [CentOS7上安裝Python3](#CentOS7上安裝Python3)  
 [創建虛擬環境](創建虛擬環境)  
+[CentOS上安裝Pip](CentOS上安裝Pip)  
 [參考資料](#參考資料)  
 
 <a name="建立虛擬機"/>
@@ -79,9 +80,10 @@ Python 2.7.5
 # deactivate
 ```
 
-<a name="CentOS 7上安裝Pip"/>
-Pip是一個包管理系統，它簡化了用Python編寫的軟件包的安裝和管理，例如Python包索引（PyPI）中的軟件包。
-## CentOS 7上安裝Pip
+<a name="CentOS上安裝Pip"/>
+
+## CentOS上安裝Pip
+### Pip是一個包管理系統，它簡化了用Python編寫的軟件包的安裝和管理，例如Python包索引（PyPI）中的軟件包。
 ```bash
 # sudo yum install epel-release
 # sudo yum install python-pip
