@@ -39,8 +39,8 @@ vmnames="python_min"
 <a name="啟用SCL"/>
 
 ## 啟用SCL
-### CentOS 7附帶Python 2.7.5。
-### SCL將允許您安裝較新版本的python 3.x以及默認的python v2.7.5。
+#### CentOS 7附帶Python 2.7.5。
+#### SCL將允許您安裝較新版本的python 3.x以及默認的python v2.7.5。
 ```bash
 # python -V
 Python 2.7.5
@@ -85,7 +85,7 @@ Python 2.7.5
 <a name="CentOS上安裝Pip"/>
 
 ## CentOS上安裝Pip
-### Pip是一個包管理系統，它簡化了用Python編寫的軟件包的安裝和管理，例如Python包索引（PyPI）中的軟件包。
+#### pip是一個包管理系統，它簡化了用Python編寫的軟件包的安裝和管理。
 ```bash
 # sudo yum install epel-release
 # sudo yum install python-pip
