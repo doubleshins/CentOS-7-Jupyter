@@ -66,9 +66,27 @@ Python 2.7.5
 ## 創建虛擬環境
 ```bash
 # sudo yum groupinstall "Development Tools"
+紅帽的官方說7中的yum已經發生變化，需要使用特定選項來安裝，具體命令如下
+
 # sudo yum groupinstall "Development Tools" --setopt=group_package_types=mandatory,default,optional
+# sudo yum -y install vim-enhanced
+
+# mkdir ~/mypython3
+# cd ~/mypython3
+# scl enable rh-python36 bash
+# python -m venv my_venv
+# source my_venv/bin/activate
+# deactivate
 ```
 
+<a name="CentOS 7上安裝Pip"/>
+Pip是一個包管理系統，它簡化了用Python編寫的軟件包的安裝和管理，例如Python包索引（PyPI）中的軟件包。
+## CentOS 7上安裝Pip
+```bash
+# sudo yum install epel-release
+# sudo yum install python-pip
+# pip --version
+```
 
 
 
