@@ -1,44 +1,16 @@
 # 目錄  
-[建立虛擬機](##建立虛擬機)  
-[參考資料](##參考資料)  
-
-
+[建立虛擬機](#建立虛擬機)  
+[參考資料](#參考資料)  
 
 ## 建立虛擬機
-```bash
-$ vim create_vm_settings.sh
-...
-vmnames="k8s-master k8s-node1 k8s-node2"
-...
-sh create_vm_settings.sh
-```
-```bash
-$ vim create_vm_settings.sh
-...
-vmnames="k8s-master k8s-node1 k8s-node2"
-...
-sh create_vm_settings.sh
-```
-```bash
-$ vim create_vm_settings.sh
-...
-vmnames="k8s-master k8s-node1 k8s-node2"
-...
-sh create_vm_settings.sh
-```
-```bash
-$ vim create_vm_settings.sh
-...
-vmnames="k8s-master k8s-node1 k8s-node2"
-...
-sh create_vm_settings.sh
-```
-```bash
-$ vim create_vm_settings.sh
-...
-vmnames="k8s-master k8s-node1 k8s-node2"
-...
-sh create_vm_settings.sh
+```no-highlight
+重點，又被稱為斜體，在兩邊加上 *星號* 或是 _下劃線_ 。
+
+更強的重點，又稱為粗體，在兩邊加上 **兩個星號** 或是 __兩個下劃線__ 。
+
+也可以用 **星號與 _下劃線_** 結合重點。
+
+刪除線使用兩個波浪符號。 ~~刪除這個。~~
 ```
 
 
