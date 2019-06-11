@@ -18,12 +18,13 @@ $ qemu-img create -f qcow2 python_min.img 50G
 <source file="/vmdisk/iso/CentOS-7-x86_64-DVD-1810.iso"/>
 ```
 
+<a name="建立虛擬機"/>
 
 ## 安裝
 ```bash
-
+python -V
 ```
-
+Python 2.7.5
 
 <a name="參考資料"/>
 
