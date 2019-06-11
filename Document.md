@@ -1,5 +1,10 @@
 # 目錄
 
+[建立虛擬機](#建立虛擬機)  
+[啟用SCL](#啟用SCL)  
+[CentOS7上安裝Python3](#CentOS7上安裝Python3)  
+[參考資料](#參考資料)  
+
 <a name="建立虛擬機"/>
 
 ## 建立虛擬機
@@ -27,9 +32,9 @@ Python 2.7.5
 #sudo yum install centos-release-scl
 ```
 
-<a name="CentOS 7上安裝Python 3"/>
+<a name="CentOS7上安裝Python3"/>
 
-## CentOS 7上安裝Python 3
+## CentOS7上安裝Python3
 ```bash
 # sudo yum install rh-python36
 # python --version
