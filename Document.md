@@ -1,5 +1,6 @@
 # 目錄
-[建立虛擬機](#建立虛擬機)  
+[建立虛擬機](#建立虛擬機)
+[啟用SCL](#啟用SCL)
 [參考資料](#參考資料)
 
 <a name="建立虛擬機"/>
@@ -18,13 +19,31 @@ $ qemu-img create -f qcow2 python_min.img 50G
 <source file="/vmdisk/iso/CentOS-7-x86_64-DVD-1810.iso"/>
 ```
 
-<a name="建立虛擬機"/>
+<a name="啟用SCL"/>
 
-## 安裝
+## 啟用SCL
 ```bash
-python -V
-```
+CentOS 7附帶Python 2.7.5，這是CentOS基礎系統的關鍵部分。SCL將允許您安裝較新版本的python 3.x以及默認的python v2.7.5，以便系統工具等yum繼續正常工作。
+# python -V
 Python 2.7.5
+
+#sudo yum install centos-release-scl
+```
+
+<a name="CentOS 7上安裝Python 3"/>
+
+## CentOS 7上安裝Python 3
+```bash
+# sudo yum install rh-python36
+# python --version
+Python 2.7.5
+```
+
+
+
+
+
+
 
 <a name="參考資料"/>
 
