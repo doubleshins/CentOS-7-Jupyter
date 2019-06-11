@@ -88,10 +88,26 @@ Python 2.7.5
 # sudo yum install epel-release
 # sudo yum install python-pip
 # pip --version
+pip 8.1.2 from /usr/lib/python2.7/site-packages (python 2.7)
+
+# pip install --upgrade pip
+pip 19.1.1 from /usr/lib/python2.7/site-packages/pip (python 2.7)
+
+# sudo yum install python-devel
+# pip install XXX
+
+
 ```
 
+# yum install MySQL-python
 
+p1.py
+```bash
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
 
+import MySQLdb
+```
 
 
 
