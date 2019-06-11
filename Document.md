@@ -8,6 +8,6 @@ sh create_vm_settings.sh
 ```
 
 
-### 參考資料 ###
-* K8S建立：https://kubernetes.io/docs/setup/independent/install-kubeadm/  
+# 參考資料
+* How to Install Python 3 on CentOS 7：https://linuxize.com/post/how-to-install-python-3-on-centos-7/
 
