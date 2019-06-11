@@ -4,7 +4,8 @@
 [CentOS7上安裝Python3](#CentOS7上安裝Python3)  
 [創建虛擬環境](#創建虛擬環境)  
 [CentOS上安裝Pip](#CentOS上安裝Pip)  
-[Apache](#Apache)  
+[Apache](#Apache)
+[MySQL](#MySQL)
 [參考資料](#參考資料)  
 
 <a name="建立虛擬機"/>
@@ -111,6 +112,23 @@ pip 19.1.1 from /usr/lib/python2.7/site-packages/pip (python 2.7)
 # sudo firewall-cmd --permanent --zone=public --add-service=http
 # sudo firewall-cmd --reload
 ```
+
+<a name="MySQL"/>
+
+## MySQL
+### 最新版本的MySQL是8.0版
+```bash
+# sudo yum localinstall https://dev.mysql.com/get/mysql80-community-release-el7-1.noarch.rpm
+# sudo yum install mysql-community-server
+
+# sudo systemctl enable mysqld
+# sudo systemctl start mysqld
+# sudo systemctl status mysqld
+
+# sudo grep 'temporary password' /var/log/mysqld.log
+2019-06-11T14:14:52.208324Z 5 [Note] [MY-010454] [Server] A temporary password is generated for root@localhost: XXXXXXXXX
+```
+
 
 
 
