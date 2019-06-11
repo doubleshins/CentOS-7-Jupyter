@@ -95,19 +95,11 @@ pip 19.1.1 from /usr/lib/python2.7/site-packages/pip (python 2.7)
 
 # sudo yum install python-devel
 # pip install XXX
-
-
+# pip uninstall XXX
+# pip search "XXX"
 ```
 
-# yum install MySQL-python
 
-p1.py
-```bash
-#!/usr/bin/python
-# -*- coding: UTF-8 -*-
-
-import MySQLdb
-```
 
 
 
