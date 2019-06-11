@@ -20,14 +20,14 @@ vmnames="python_min"
 
 # vim create_vm_settings.sh
 ...
-<source file="/vmdisk/iso/CentOS-7-x86_64-DVD-1810.iso"/>
+ <source file="/vmdisk/iso/CentOS-7-x86_64-DVD-1810.iso"/>
 ...
 
 安裝-選擇『最小型安裝』，但是增加『相容性函式庫』、『開發工具』、『系統管理工具』
 
 # vim create_vm_settings.sh
 ...
-<source file="/vmdisk/iso/CentOS-7-x86_64-DVD-1810.iso"/>
+ <source file=""/>
 ...
 
 # virsh create python_min.xml
@@ -56,13 +56,17 @@ Python 2.7.5
 # scl enable rh-python36 bash
 # python --version
 Python 3.6.3
+# exit
+# python -V
+Python 2.7.5
 ```
 
 <a name="創建虛擬環境"/>
 
 ## 創建虛擬環境
 ```bash
-
+# sudo yum groupinstall "Development Tools"
+# sudo yum groupinstall "Development Tools" --setopt=group_package_types=mandatory,default,optional
 ```
 
 
