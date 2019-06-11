@@ -4,9 +4,9 @@
 [CentOS7上安裝Python3](#CentOS7上安裝Python3)  
 [創建虛擬環境](#創建虛擬環境)  
 [CentOS上安裝Pip](#CentOS上安裝Pip)  
-[Apache](#Apache)
-[MySQL](#MySQL)
-[參考資料](#參考資料)  
+[Apache](#Apache)  
+[MySQL](#MySQL)  
+[參考資料](#參考資料)    
 
 <a name="建立虛擬機"/>
 
@@ -127,6 +127,20 @@ pip 19.1.1 from /usr/lib/python2.7/site-packages/pip (python 2.7)
 
 # sudo grep 'temporary password' /var/log/mysqld.log
 2019-06-11T14:14:52.208324Z 5 [Note] [MY-010454] [Server] A temporary password is generated for root@localhost: XXXXXXXXX
+
+運行該mysql_secure_installation命令以提高MySQL安裝的安全性：
+# sudo mysql_secure_installation
+1.輸入root用戶的密碼：
+2.請設置新密碼:
+3.重新輸入新的密碼：
+4.y
+5.y
+6.y
+7.y
+8.y
+All done!
+
+# mysql -u root -p
 ```
 
 
