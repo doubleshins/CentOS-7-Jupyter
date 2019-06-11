@@ -24,7 +24,8 @@ $ qemu-img create -f qcow2 python_min.img 50G
 <a name="啟用SCL"/>
 
 ## 啟用SCL
-### CentOS 7附帶Python 2.7.5，這是CentOS基礎系統的關鍵部分。SCL將允許您安裝較新版本的python 3.x以及默認的python v2.7.5，以便系統工具等yum繼續正常工作。
+### CentOS 7附帶Python 2.7.5，這是CentOS基礎系統的關鍵部分。
+### SCL將允許您安裝較新版本的python 3.x以及默認的python v2.7.5，以便系統工具等yum繼續正常工作。
 ```bash
 # python -V
 Python 2.7.5
@@ -41,8 +42,8 @@ Python 2.7.5
 Python 2.7.5
 shell中的默認Python版本
 
-To access Python 3.6 you need to launch a new shell instance using the Software Collection scl tool:
-scl enable rh-python36 bash
+Python 3.6，您需要使用Software Collection scl工具
+# scl enable rh-python36 bash
 ```
 
 
