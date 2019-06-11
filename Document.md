@@ -1,5 +1,8 @@
-# ESP32 NodeMCU-32S
-ESP32 MicroPython with LoRaWAN Module Project
-
-利用 ESP32 (AI-thinker NodeMCU-32S 核心开发板) 與Gemtek GIoT LoRaWAN 模組連接範例
-![pin](nodemcu-32s_pinout.jpg)
+# 首先建立三台虛擬機
+```bash
+$ vim create_vm_settings.sh
+...
+vmnames="k8s-master k8s-node1 k8s-node2"
+...
+sh create_vm_settings.sh
+```
