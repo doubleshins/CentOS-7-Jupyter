@@ -143,6 +143,13 @@ All done!
 # mysql -u root -p
 ```
 
+<a name="Python爬蟲"/>
+
+## Python爬蟲
+#### 把網站上面的資料複製下來，一筆資料很容易複製，那一千筆呢?，不管是圖片還是文字資料，這就是爬蟲
+```bash
+
+```
 
 
 
@@ -153,4 +160,5 @@ All done!
 <a name="參考資料"/>
 
 ## 參考資料
+- Day-1 Python爬蟲小人生(1): https://ithelp.ithome.com.tw/articles/10202121
 - How to Install Python 3 on CentOS 7: https://linuxize.com/post/how-to-install-python-3-on-centos-7/
