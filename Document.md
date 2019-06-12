@@ -4,6 +4,7 @@
 [CentOS7上安裝Python3](#CentOS7上安裝Python3)  
 [創建虛擬環境](#創建虛擬環境)  
 [CentOS上安裝Pip](#CentOS上安裝Pip)  
+[安裝Jupyter](#安裝Jupyter)  
 [Apache](#Apache)  
 [MySQL](#MySQL)  
 [參考資料](#參考資料)    
@@ -96,9 +97,21 @@ pip 8.1.2 from /usr/lib/python2.7/site-packages (python 2.7)
 pip 19.1.1 from /usr/lib/python2.7/site-packages/pip (python 2.7)
 
 # sudo yum install python-devel
-# pip install XXX
+# pip install requests
+# pip install beautifulsoup4
+# pip install jupyter notebook
+
 # pip uninstall XXX
 # pip search "XXX"
+```
+
+
+<a name="安裝Jupyter"/>
+
+## 安裝Jupyter
+#### 把網站上面的資料複製下來，一筆資料很容易複製，那一千筆呢?，不管是圖片還是文字資料，這就是爬蟲
+```bash
+
 ```
 
 <a name="Apache"/>
@@ -143,13 +156,7 @@ All done!
 # mysql -u root -p
 ```
 
-<a name="Python爬蟲"/>
 
-## Python爬蟲
-#### 把網站上面的資料複製下來，一筆資料很容易複製，那一千筆呢?，不管是圖片還是文字資料，這就是爬蟲
-```bash
-
-```
 
 
 
