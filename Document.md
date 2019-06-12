@@ -61,7 +61,6 @@ Python 3.6.3
 ```bash
 # mkdir ~/my_project1
 # cd ~/my_project1
-# scl enable rh-python36 bash
 # python -m venv my_venv
 # source my_venv/bin/activate
 
@@ -95,7 +94,7 @@ Python 3.6.3
 ## 安裝Jupyter
 #### 把網站上面的資料複製下來，一筆資料很容易複製，那一千筆呢?，不管是圖片還是文字資料，這就是爬蟲
 ```bash
-生成配置文件：
+產生設定檔：
 # jupyter notebook --generate-config
 # vim ~/.jupyter/jupyter_notebook_config.py
 ...
@@ -111,6 +110,16 @@ c.NotebookApp.ip = '0.0.0.0' #監聽網路
 啟動Jupyter Notebook服務器：
 # jupyter notebook
 ```
+
+
+
+
+
+
+
+
+
+
 
 <a name="Apache"/>
 
@@ -153,6 +162,7 @@ All done!
 
 # mysql -u root -p
 ```
+
 
 
 
