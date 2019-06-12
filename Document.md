@@ -111,7 +111,18 @@ pip 19.1.1 from /usr/lib/python2.7/site-packages/pip (python 2.7)
 ## 安裝Jupyter
 #### 把網站上面的資料複製下來，一筆資料很容易複製，那一千筆呢?，不管是圖片還是文字資料，這就是爬蟲
 ```bash
+生成配置文件：
+# jupyter notebook --generate-config
 
+# vim ~/.jupyter/jupyter_notebook_config.py
+c.NotebookApp.ip = 'localhost'
+c.NotebookApp.open_browser = True
+c.NotebookApp.port = 8888
+c.NotebookApp.password = ''
+# sudo firewall-cmd --zone=public --add-port=8888/tcp --permanent
+# sudo systemctl restart firewalld.service
+啟動Jupyter Notebook服務器：
+# jupyter notebook
 ```
 
 <a name="Apache"/>
