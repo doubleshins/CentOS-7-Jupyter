@@ -175,6 +175,7 @@ All done!
 <a name="參考資料"/>
 
 ## 參考資料
+- 7步帶你玩轉Jupyter Notebook（CentOS: https://kknews.cc/zh-tw/other/4expomq.html
 - 自己架一個 jupyter remote machine: https://medium.com/@chen.ishi/%E8%87%AA%E5%B7%B1%E6%9E%B6%E4%B8%80%E5%80%8B-jupyter-remote-machine-4de7122ba272
 - 連接到遠程服務器上的Jupyter: https://www.digitalocean.com/community/tutorials/how-to-install-run-connect-to-jupyter-notebook-on-remote-server
 - 在 Centos7 上搭建 Jupyter Notebook 环境: https://segmentfault.com/a/1190000012731626
