@@ -175,6 +175,7 @@ All done!
 <a name="參考資料"/>
 
 ## 參考資料
+- 連接到遠程服務器上的Jupyter: https://www.digitalocean.com/community/tutorials/how-to-install-run-connect-to-jupyter-notebook-on-remote-server
 - 在 Centos7 上搭建 Jupyter Notebook 环境: https://segmentfault.com/a/1190000012731626
 - 五分钟教会你建立Jupyter notebook服务器: https://python.freelycode.com/contribution/detail/846
 - Day-1 Python爬蟲小人生(1): https://ithelp.ithome.com.tw/articles/10202121
