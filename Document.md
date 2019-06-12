@@ -43,43 +43,32 @@ vmnames="python_min"
 #### CentOS 7附帶Python 2.7.5。
 #### SCL將允許您安裝較新版本的python 3.x以及默認的python v2.7.5。
 ```bash
+# ssh dic@192.168.19.13
 # python -V
 Python 2.7.5
 
-#sudo yum install centos-release-scl
-```
-
-<a name="CentOS7上安裝Python3"/>
-
-## CentOS7上安裝Python3
-```bash
-# sudo yum install rh-python36
-# python --version
-Python 2.7.5
+# sudo yum install -y centos-release-scl
+# sudo yum install -y rh-python36 vim-enhanced
 
 # scl enable rh-python36 bash
 # python --version
 Python 3.6.3
-# exit
-# python -V
-Python 2.7.5
 ```
 
 <a name="創建虛擬環境"/>
 
 ## 創建虛擬環境
 ```bash
-# sudo yum groupinstall "Development Tools"
-紅帽的官方說7中的yum已經發生變化，需要使用特定選項來安裝，具體命令如下
-
-# sudo yum groupinstall "Development Tools" --setopt=group_package_types=mandatory,default,optional
-# sudo yum -y install vim-enhanced
-
-# mkdir ~/mypython3
-# cd ~/mypython3
+# mkdir ~/my_project1
+# cd ~/my_project1
 # scl enable rh-python36 bash
 # python -m venv my_venv
 # source my_venv/bin/activate
+
+更新pip
+# pip install --upgrade pip
+
+離開環境
 # deactivate
 ```
 
@@ -88,20 +77,15 @@ Python 2.7.5
 ## CentOS上安裝Pip
 #### pip是一個包管理系統，它簡化了用Python編寫的軟件包的安裝和管理。
 ```bash
-# sudo yum install epel-release
-# sudo yum install python-pip
-# pip --version
-pip 8.1.2 from /usr/lib/python2.7/site-packages (python 2.7)
-
-# pip install --upgrade pip
-pip 19.1.1 from /usr/lib/python2.7/site-packages/pip (python 2.7)
-
-# sudo yum install python-devel
-# pip install requests
-# pip install beautifulsoup4
+- 是一個介於IDE(Pycharm, Spider)以及Editor(text,VScode, 記事本)之間的一個讓你可以寫code的工具
 # pip install jupyter notebook
+- 對網路發動請求的套件，可實作對網頁做get、post等HTTP協定的行為。
+# pip install requests
+- 借助網頁的結構特性來解析網頁的工具，只需要簡單的幾條指令就可以提取HTML標籤裡的元素。
+# pip install beautifulsoup4
 
 # pip uninstall XXX
+
 # pip search "XXX"
 ```
 
@@ -113,14 +97,17 @@ pip 19.1.1 from /usr/lib/python2.7/site-packages/pip (python 2.7)
 ```bash
 生成配置文件：
 # jupyter notebook --generate-config
-
 # vim ~/.jupyter/jupyter_notebook_config.py
-c.NotebookApp.ip = 'localhost'
-c.NotebookApp.open_browser = True
-c.NotebookApp.port = 8888
-c.NotebookApp.password = ''
+...
+c.NotebookApp.open_brower = False #不需要在服務器上打開瀏覽器
+c.NotebookApp.ip = '0.0.0.0' #監聽網路
+...
+
+# jupyter notebook password
+
 # sudo firewall-cmd --zone=public --add-port=8888/tcp --permanent
 # sudo systemctl restart firewalld.service
+
 啟動Jupyter Notebook服務器：
 # jupyter notebook
 ```
@@ -178,5 +165,7 @@ All done!
 <a name="參考資料"/>
 
 ## 參考資料
+- 在 Centos7 上搭建 Jupyter Notebook 环境: https://segmentfault.com/a/1190000012731626
+- 五分钟教会你建立Jupyter notebook服务器: https://python.freelycode.com/contribution/detail/846
 - Day-1 Python爬蟲小人生(1): https://ithelp.ithome.com.tw/articles/10202121
 - How to Install Python 3 on CentOS 7: https://linuxize.com/post/how-to-install-python-3-on-centos-7/
