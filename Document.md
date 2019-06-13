@@ -120,6 +120,13 @@ c.ContentsManager.root_dir = '/data/jupyter/root'
 - Python code(Ctrl + Enter編譯)
 - 以PTTjoke版為例 : https://www.ptt.cc/bbs/joke/index.html
 
+因為我想選取的是網頁裡的文章標題，所以soup.select中放的才是div.title a
+```
+<div class="title">
+	<a href="/bbs/joke/M.1560406106.A.D32.html">[ＸＤ] 二師兄</a>		
+</div>
+```
+
 1.先將剛剛下載的Python套件import進來
 ```python
 import requests
@@ -136,13 +143,8 @@ print(r.text) #印出HTML
 soup = BeautifulSoup(r.text,"html.parser") #將網頁資料以html.parser
 sel = soup.select("div.title a") #取HTML標中的 <div class="title"></div> 中的<a>標籤存入sel
 ```
-4.因為我想選取的是網頁裡的文章標題，所以soup.select中放的才是div.title a
-```
-<div class="title">
-	<a href="/bbs/joke/M.1560406106.A.D32.html">[ＸＤ] 二師兄</a>		
-</div>
-```
-5.最後寫一個迴圈將爬下來的文章標題印出來
+
+4.最後寫一個迴圈將爬下來的文章標題印出來
 ```
 for s in sel:
     print(s) 
