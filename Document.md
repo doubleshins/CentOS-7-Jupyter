@@ -118,7 +118,7 @@ c.ContentsManager.root_dir = '/data/jupyter/root'
 ## 爬蟲小人生(1)
 #### 把網站上面的資料複製下來，一筆資料很容易複製，那一千筆呢?，不管是圖片還是文字資料，這就是爬蟲
 - Python code(Ctrl + Enter編譯)
-- 以PTT資訊版為例 : https://www.ptt.cc/bbs/NBA/index.html
+- 以PTTjoke版為例 : https://www.ptt.cc/bbs/joke/index.html
 
 1.先將剛剛下載的Python套件import進來
 ```python
