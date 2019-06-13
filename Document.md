@@ -146,8 +146,8 @@ sel = soup.select("div.title a") #取HTML標中的 <div class="title"></div> 中
 
 4.最後寫一個迴圈將爬下來的文章標題印出來
 ```
-for s in sel:
-    print(s) 
+for item in sel:
+    print(item) 
 ```    
 
 ## 爬蟲小人生(2)
