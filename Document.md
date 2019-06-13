@@ -1,6 +1,6 @@
 # 目錄
 [建立虛擬機](#建立虛擬機)  
-  
+[啟用SCL](#啟用SCL)  
 
 <a name="建立虛擬機"/>
 
@@ -97,7 +97,6 @@ Python 3.6.3
 <a name="安裝Jupyter"/>
 
 ## 安裝Jupyter
-#### 把網站上面的資料複製下來，一筆資料很容易複製，那一千筆呢?，不管是圖片還是文字資料，這就是爬蟲
 ```bash
 產生設定檔：
 # jupyter notebook --generate-config --allow-root
@@ -131,7 +130,10 @@ c.ContentsManager.root_dir = '/data/jupyter/root'
 
 ![image](https://github.com/doubleshins/CentOS-7-Python-3/blob/master/img/ZbQT96z.png)
 
+<a name="爬蟲小人生(1)"/>
 
+## 爬蟲小人生(1)
+#### 把網站上面的資料複製下來，一筆資料很容易複製，那一千筆呢?，不管是圖片還是文字資料，這就是爬蟲
 - Python code(Ctrl + Enter編譯)
 - 以PTT資訊版為例 : https://www.ptt.cc/bbs/NBA/index.html
 
@@ -143,25 +145,20 @@ from bs4 import BeautifulSoup
 ```
 2.將網頁Get下來
 ```python
-import requests
-from bs4 import BeautifulSoup
-
-r = requests.get("https://www.ptt.cc/bbs/MobileComm/index.html") #將此頁面的HTML GET下來
+r = requests.get("https://www.ptt.cc/bbs/joke/index.html") #將此頁面的HTML GET下來
 print(r.text) #印出HTML
 ```
 3.將抓下來的資料用Beautifulsoup4轉為HTML的parser
 ```python
-import requests
-from bs4 import BeautifulSoup
-
-r = requests.get("https://www.ptt.cc/bbs/MobileComm/index.html") #將網頁資料GET下來
 soup = BeautifulSoup(r.text,"html.parser") #將網頁資料以html.parser
 sel = soup.select("div.title a") #取HTML標中的 <div class="title"></div> 中的<a>標籤存入sel
 ```
 4.因為我想選取的是網頁裡的文章標題，所以soup.select中放的才是div.title a
 ```
-<div class="title">	
- <a href="/bbs/MobileComm/M.1539248247.A.3CF.html">[問題]Pixel3 / XR / XZ3 選擇？</a>		
+<div class="title">
+			
+				<a href="/bbs/joke/M.1560406106.A.D32.html">[ＸＤ] 二師兄</a>
+			
 </div>
 ```
 5.最後寫一個迴圈將爬下來的文章標題印出來
