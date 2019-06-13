@@ -141,6 +141,7 @@ c.ContentsManager.root_dir = '/data/jupyter/root'
 
 - Python code(Ctrl + Enter編譯)
 - 以PTT資訊版為例 : https://www.ptt.cc/bbs/NBA/index.html
+
 1.先將剛剛下載的Python套件import進來
 ```python
 import requests
@@ -165,9 +166,11 @@ soup = BeautifulSoup(r.text,"html.parser") #將網頁資料以html.parser
 sel = soup.select("div.title a") #取HTML標中的 <div class="title"></div> 中的<a>標籤存入sel
 ```
 4.因為我想選取的是網頁裡的文章標題，所以soup.select中放的才是div.title a
+```
 <div class="title">	
  <a href="/bbs/MobileComm/M.1539248247.A.3CF.html">[問題]Pixel3 / XR / XZ3 選擇？</a>		
 </div>
+```
 5.最後寫一個迴圈將爬下來的文章標題印出來
 ```
 for s in sel:
