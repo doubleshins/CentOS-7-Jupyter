@@ -139,6 +139,42 @@ c.ContentsManager.root_dir = '/data/jupyter/root'
 ![image](https://github.com/doubleshins/CentOS-7-Python-3/blob/master/img/ZbQT96z.png)
 
 
+- Python code(Ctrl + Enter編譯)
+- 以PTT資訊版為例 : https://www.ptt.cc/bbs/NBA/index.html
+1.先將剛剛下載的Python套件import進來
+```python
+import requests
+from bs4 import BeautifulSoup 
+
+```
+2.將網頁Get下來
+```python
+import requests
+from bs4 import BeautifulSoup
+
+r = requests.get("https://www.ptt.cc/bbs/MobileComm/index.html") #將此頁面的HTML GET下來
+print(r.text) #印出HTML
+```
+3.將抓下來的資料用Beautifulsoup4轉為HTML的parser
+```python
+import requests
+from bs4 import BeautifulSoup
+
+r = requests.get("https://www.ptt.cc/bbs/MobileComm/index.html") #將網頁資料GET下來
+soup = BeautifulSoup(r.text,"html.parser") #將網頁資料以html.parser
+sel = soup.select("div.title a") #取HTML標中的 <div class="title"></div> 中的<a>標籤存入sel
+```
+4.因為我想選取的是網頁裡的文章標題，所以soup.select中放的才是div.title a
+<div class="title">	
+ <a href="/bbs/MobileComm/M.1539248247.A.3CF.html">[問題]Pixel3 / XR / XZ3 選擇？</a>		
+</div>
+5.最後寫一個迴圈將爬下來的文章標題印出來
+```
+for s in sel:
+    print(s["href"], s.text) 
+```    
+
+
 
 
 
@@ -199,10 +235,10 @@ All done!
 <a name="參考資料"/>
 
 ## 參考資料
-- 7步帶你玩轉Jupyter Notebook（CentOS: https://kknews.cc/zh-tw/other/4expomq.html
-- 自己架一個 jupyter remote machine: https://medium.com/@chen.ishi/%E8%87%AA%E5%B7%B1%E6%9E%B6%E4%B8%80%E5%80%8B-jupyter-remote-machine-4de7122ba272
-- 連接到遠程服務器上的Jupyter: https://www.digitalocean.com/community/tutorials/how-to-install-run-connect-to-jupyter-notebook-on-remote-server
-- 在 Centos7 上搭建 Jupyter Notebook 环境: https://segmentfault.com/a/1190000012731626
-- 五分钟教会你建立Jupyter notebook服务器: https://python.freelycode.com/contribution/detail/846
-- Day-1 Python爬蟲小人生(1): https://ithelp.ithome.com.tw/articles/10202121
-- How to Install Python 3 on CentOS 7: https://linuxize.com/post/how-to-install-python-3-on-centos-7/
+- 7步帶你玩轉Jupyter Notebook（CentOS : https://kknews.cc/zh-tw/other/4expomq.html
+- 自己架一個 jupyter remote machine : https://medium.com/@chen.ishi/%E8%87%AA%E5%B7%B1%E6%9E%B6%E4%B8%80%E5%80%8B-jupyter-remote-machine-4de7122ba272
+- 連接到遠程服務器上的Jupyter : https://www.digitalocean.com/community/tutorials/how-to-install-run-connect-to-jupyter-notebook-on-remote-server
+- 在 Centos7 上搭建 Jupyter Notebook 环境 : https://segmentfault.com/a/1190000012731626
+- 五分钟教会你建立Jupyter notebook服务器 : https://python.freelycode.com/contribution/detail/846
+- Day-1 Python爬蟲小人生(1) : https://ithelp.ithome.com.tw/articles/10202121
+- How to Install Python 3 on CentOS 7 : https://linuxize.com/post/how-to-install-python-3-on-centos-7/
