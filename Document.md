@@ -160,6 +160,11 @@ r = requests.get(url)
 soup = BeautifulSoup(r .text, 'html.parser')
 ```
 
+```
+<h3 class="PostEntry_title_H5o4dj PostEntry_unread_2U217-">（#持續更新）勇敢的臺灣女孩</h3>
+```
+
+
 ```python
 dcard_title = soup.find_all('h3', re.compile('PostEntry_title_'))
 print('Dcard 熱門前十文章標題：')
