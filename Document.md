@@ -1,9 +1,3 @@
-# 目錄
-[建立虛擬機](#建立虛擬機)  
-[啟用SCL](#啟用SCL)  
-
-<a name="建立虛擬機"/>
-
 ## 建立虛擬機
 ```bash
 # vim create_vm_settings.sh
@@ -30,8 +24,6 @@ vmnames="python_min"
 # virsh create python_min.xml
 ```
 
-<a name="啟用SCL"/>
-
 ## 啟用SCL
 #### CentOS 7附帶Python 2.7.5。
 #### SCL將允許您安裝較新版本的python 3.x以及默認的python v2.7.5。
@@ -47,8 +39,6 @@ Python 2.7.5
 # python --version
 Python 3.6.3
 ```
-
-<a name="創建虛擬環境"/>
 
 ## 創建虛擬環境
 ```bash
@@ -70,8 +60,6 @@ Python 3.6.3
 # deactivate
 ```
 
-<a name="CentOS上安裝Pip"/>
-
 ## CentOS上安裝Pip
 #### pip是一個包管理系統，它簡化了用Python編寫的軟件包的安裝和管理。
 ```bash
@@ -92,9 +80,6 @@ Python 3.6.3
 
 # pip search "XXX"
 ```
-
-
-<a name="安裝Jupyter"/>
 
 ## 安裝Jupyter
 ```bash
@@ -129,8 +114,6 @@ c.ContentsManager.root_dir = '/data/jupyter/root'
 - 點選右上角的python3新建檔案:
 
 ![image](https://github.com/doubleshins/CentOS-7-Python-3/blob/master/img/ZbQT96z.png)
-
-<a name="爬蟲小人生(1)"/>
 
 ## 爬蟲小人生(1)
 #### 把網站上面的資料複製下來，一筆資料很容易複製，那一千筆呢?，不管是圖片還是文字資料，這就是爬蟲
@@ -171,9 +154,6 @@ for s in sel:
 
 
 
-
-<a name="Apache"/>
-
 ## Apache
 ```bash
 # sudo yum install httpd
@@ -184,7 +164,6 @@ for s in sel:
 # sudo firewall-cmd --reload
 ```
 
-<a name="MySQL"/>
 
 ## MySQL
 ### 最新版本的MySQL是8.0版
