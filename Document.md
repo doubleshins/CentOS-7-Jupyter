@@ -61,7 +61,13 @@ Python 3.6.3
 ```bash
 # mkdir ~/my_project1
 # cd ~/my_project1
-# python -m venv my_venv
+
+更新pip
+# pip install --upgrade pip
+
+創建一個獨立的虛擬環境，與系統自帶的 Python 隔離開來
+# pip install virtualenv
+# virtualenv my_venv
 # source my_venv/bin/activate
 
 更新pip
@@ -77,11 +83,17 @@ Python 3.6.3
 #### pip是一個包管理系統，它簡化了用Python編寫的軟件包的安裝和管理。
 ```bash
 - 是一個介於IDE(Pycharm, Spider)以及Editor(text,VScode, 記事本)之間的一個讓你可以寫code的工具
-# pip install jupyter notebook
+# pip install jupyter
+
 - 對網路發動請求的套件，可實作對網頁做get、post等HTTP協定的行為。
 # pip install requests
+
 - 借助網頁的結構特性來解析網頁的工具，只需要簡單的幾條指令就可以提取HTML標籤裡的元素。
 # pip install beautifulsoup4
+
+建立項目目錄
+# mkdir -p /data/jupyter
+# mkdir /data/jupyter/root
 
 # pip uninstall XXX
 
@@ -95,22 +107,28 @@ Python 3.6.3
 #### 把網站上面的資料複製下來，一筆資料很容易複製，那一千筆呢?，不管是圖片還是文字資料，這就是爬蟲
 ```bash
 產生設定檔：
-# jupyter notebook --generate-config
+# jupyter notebook --generate-config --allow-root
+
+編輯設定檔
 # vim ~/.jupyter/jupyter_notebook_config.py
 ...
-c.NotebookApp.open_brower = False #不需要在服務器上打開瀏覽器
+c.NotebookApp.open_brower = False #不需要再服務器打開瀏覽器
 c.NotebookApp.ip = '0.0.0.0' #監聽網路
+c.NotebookApp.allow_root = True
+c.ContentsManager.root_dir = '/data/jupyter/root'
 ...
 
+設定密碼
 # jupyter notebook password
 
+對外開放8888
 # sudo firewall-cmd --zone=public --add-port=8888/tcp --permanent
 # sudo systemctl restart firewalld.service
 
 啟動Jupyter Notebook服務器：
-# jupyter notebook
+# nohup jupyter notebook &
 ```
-
+![image](https://github.com/doubleshins/CentOS-7-Python-3/blob/master/4MQ3L94.png)
 
 
 
