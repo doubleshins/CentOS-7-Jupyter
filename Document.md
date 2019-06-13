@@ -152,24 +152,21 @@ for s in sel:
 - 以Dcard : https://www.dcard.tw/f
 
 1.先將剛剛下載的Python套件import進來
-```python
-import requests
-from bs4 import BeautifulSoup
-url = 'https://www.dcard.tw/f'
-r = requests.get(url)
-soup = BeautifulSoup(r .text, 'html.parser')
-```
-
 ```
 <h3 class="PostEntry_title_H5o4dj PostEntry_unread_2U217-">（#持續更新）勇敢的臺灣女孩</h3>
 ```
 
+```python
+import requests
+from bs4 import BeautifulSoup 
+r = requests.get("https://www.dcard.tw/f")
+```
 
 ```python
-dcard_title = soup.find_all('h3', re.compile('PostEntry_title_'))
-print('Dcard 熱門前十文章標題：')
-for index, item in enumerate(dcard_title[:10]):
-    print("{0:2d}. {1}".format(index + 1, item.text.strip()))
+soup = BeautifulSoup(r.text,"html.parser") #將網頁資料以html.parser
+sel = soup.select("div.PostEntry_content_g2afgv h3") #取HTML標中的 <div class="title"></div> 中的<a>標籤存入sel
+for index,s in enumerate(sel):
+    print(index +1,s.text) 
 ```
 
 
