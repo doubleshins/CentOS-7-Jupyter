@@ -145,8 +145,31 @@ sel = soup.select("div.title a") #取HTML標中的 <div class="title"></div> 中
 5.最後寫一個迴圈將爬下來的文章標題印出來
 ```
 for s in sel:
-    print(s["href"], s.text) 
+    print(s) 
 ```    
+
+## 爬蟲小人生(2)
+- 以Dcard : https://www.dcard.tw/f
+
+1.先將剛剛下載的Python套件import進來
+```python
+import requests
+from bs4 import BeautifulSoup
+url = 'https://www.dcard.tw/f'
+r = requests.get(url)
+soup = BeautifulSoup(r .text, 'html.parser')
+```
+
+```python
+dcard_title = soup.find_all('h3', re.compile('PostEntry_title_'))
+print('Dcard 熱門前十文章標題：')
+for index, item in enumerate(dcard_title[:10]):
+    print("{0:2d}. {1}".format(index + 1, item.text.strip()))
+```
+
+
+
+
 
 
 
