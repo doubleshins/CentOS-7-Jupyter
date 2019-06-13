@@ -156,9 +156,7 @@ sel = soup.select("div.title a") #取HTML標中的 <div class="title"></div> 中
 4.因為我想選取的是網頁裡的文章標題，所以soup.select中放的才是div.title a
 ```
 <div class="title">
-			
-				<a href="/bbs/joke/M.1560406106.A.D32.html">[ＸＤ] 二師兄</a>
-			
+	<a href="/bbs/joke/M.1560406106.A.D32.html">[ＸＤ] 二師兄</a>		
 </div>
 ```
 5.最後寫一個迴圈將爬下來的文章標題印出來
