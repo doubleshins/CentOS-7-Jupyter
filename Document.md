@@ -1,13 +1,6 @@
 # 目錄
 [建立虛擬機](#建立虛擬機)  
-[啟用SCL](#啟用SCL)  
-[CentOS7上安裝Python3](#CentOS7上安裝Python3)  
-[創建虛擬環境](#創建虛擬環境)  
-[CentOS上安裝Pip](#CentOS上安裝Pip)  
-[安裝Jupyter](#安裝Jupyter)  
-[Apache](#Apache)  
-[MySQL](#MySQL)  
-[參考資料](#參考資料)    
+  
 
 <a name="建立虛擬機"/>
 
