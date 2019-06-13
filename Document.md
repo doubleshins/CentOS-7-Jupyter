@@ -177,6 +177,8 @@ for index,item in enumerate(sel):
 1.先將剛剛下載的Python套件import進來
 ```
 <h3 class="PostEntry_title_H5o4dj PostEntry_unread_2U217-">（#持續更新）勇敢的臺灣女孩</h3>
+
+soup.find_all('h3')
 ```
 
 ```python
@@ -186,10 +188,10 @@ import re
 url = 'https://www.dcard.tw/f'
 resp = requests.get(url)
 soup = BeautifulSoup(resp.text, 'html.parser')
-dcard_title = soup.find_all('h3', re.compile('PostEntry_title_'))
+dcard_title = soup.find_all('h3')
 print('Dcard 熱門前十文章標題：')
 for index, item in enumerate(dcard_title[:10]):
-    print("{0:2d}. {1}".format(index + 1, item.text.strip()))
+    print(index + 1, item.text)
 ```
 
 
