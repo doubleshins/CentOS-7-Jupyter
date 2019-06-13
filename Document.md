@@ -128,12 +128,14 @@ c.ContentsManager.root_dir = '/data/jupyter/root'
 啟動Jupyter Notebook服務器：
 # nohup jupyter notebook &
 ```
-- 瀏覽器中自動開啟Jupyter notebook的頁面
+- 瀏覽器中自動開啟Jupyter notebook的頁面:
+
 ![image](https://github.com/doubleshins/CentOS-7-Python-3/blob/master/img/4MQ3L94.png)
 
 
 
-- 點選右上角的python3新建檔案
+- 點選右上角的python3新建檔案:
+
 ![image](https://github.com/doubleshins/CentOS-7-Python-3/blob/master/img/ZbQT96z.png)
 
 
