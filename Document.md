@@ -174,7 +174,7 @@ for index,item in enumerate(sel):
 ## 爬蟲小人生(3)
 - 以Dcard : https://www.dcard.tw/f
 
-1.先將剛剛下載的Python套件import進來
+1.目標樣式
 ```
 <h3 class="PostEntry_title_H5o4dj PostEntry_unread_2U217-">（#持續更新）勇敢的臺灣女孩</h3>
 
@@ -194,6 +194,38 @@ for index, item in enumerate(dcard_title[:10]):
     print("{0:2d}. {1}".format(index + 1, item.text.strip()))
 ```
 
+## 爬蟲小人生(4)
+- 以google: https://www.google.com/search?q=%E5%91%A8%E5%AD%90%E7%91%9C&source=lnms&tbm=isch&sa=X&sqi=2&ved=0ahUKEwiVquLdr-jiAhViLH0KHfFCBecQ_AUIECgB&biw=1536&bih=750
+
+1.先將剛剛下載的Python套件import進來
+```python
+import requests
+import urllib.request
+from bs4 import BeautifulSoup
+import os
+import time
+url = 'https://www.google.com/search?q=%E5%91%A8%E5%AD%90%E7%91%9C&source=lnms&tbm=isch&sa=X&sqi=2&ved=0ahUKEwiVquLdr-jiAhViLH0KHfFCBecQ_AUIECgB&biw=1536&bih=750'
+photolimit = 10
+headers = {'User-Agent': 'Mozilla/5.0'}
+response = requests.get(url,headers = headers) #使用header避免訪問受到限制
+soup = BeautifulSoup(response.content, 'html.parser')
+items = soup.find_all('img')
+folder_path ='./photo/'
+if (os.path.exists(folder_path) == False): #判斷資料夾是否存在
+    os.makedirs(folder_path) #Create folder
+for index , item in enumerate (items):
+    if (item and index < photolimit ):
+        html = requests.get(item.get('src')) # use 'get' to get photo link path , requests = send request
+        img_name = folder_path + str(index + 1) + '.png'
+        with open(img_name,'wb') as file: #以byte的形式將圖片數據寫入
+            file.write(html.content)
+            file.flush()
+        file.close()
+        print('第 %d 張' % (index + 1))
+        time.sleep(1)
+
+print('Done')
+```
 
 
 
