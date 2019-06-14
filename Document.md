@@ -135,7 +135,8 @@ from bs4 import BeautifulSoup
 ```
 2.將網頁Get下來
 ```python
-r = requests.get("https://www.ptt.cc/bbs/joke/index.html") #將此頁面的HTML GET下來
+url = "https://www.ptt.cc/bbs/joke/index.html"
+r = requests.get(url) #將此頁面的HTML GET下來
 print(r.text) #印出HTML
 ```
 3.將抓下來的資料用Beautifulsoup4轉為HTML的parser
