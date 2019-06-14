@@ -198,6 +198,10 @@ for index, item in enumerate(dcard_title[:10]):
 - 以google: https://www.google.com/search?q=%E5%91%A8%E5%AD%90%E7%91%9C&source=lnms&tbm=isch&sa=X&sqi=2&ved=0ahUKEwiVquLdr-jiAhViLH0KHfFCBecQ_AUIECgB&biw=1536&bih=750
 
 1.先將剛剛下載的Python套件import進來
+```
+<img id="SQ7ihkkzsZRSLM:" src="data:image/jpeg;base64,/9j/4AAQS....." jsaction="load:str.tbn" class="rg_ic rg_i" alt="「周子瑜」的圖片搜尋結果" style="width: 188px; height: 187px; margin-left: -9px; margin-right: -7px; margin-top: 0px;" data-atf="1">
+```
+
 ```python
 import requests
 import urllib.request
