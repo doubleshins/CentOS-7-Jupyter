@@ -228,7 +228,7 @@ for index , item in enumerate (items):
         print('第 %d 張' % (index + 1))
         time.sleep(1)
 
-print('Done')
+print("----爬蟲---結束---")
 ```
 
 
