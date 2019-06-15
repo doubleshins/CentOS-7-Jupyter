@@ -115,6 +115,21 @@ c.ContentsManager.root_dir = '/data/jupyter/root'
 
 ![image](https://github.com/doubleshins/CentOS-7-Python-3/blob/master/img/ZbQT96z.png)
 
+## 快速入門
+
+![image](https://github.com/doubleshins/CentOS-7-Jupyter/blob/master/img/1asf.PNG)
+
+- 
+```python
+import requests
+r = requests.get('https://www.youtube.com/')
+print(r)
+```
+<Response [200]>
+```python
+print(dir(r))
+```
+
 ## 爬蟲小人生(1)
 #### 把網站上面的資料複製下來，一筆資料很容易複製，那一千筆呢?，不管是圖片還是文字資料，這就是爬蟲
 - Python code(Ctrl + Enter編譯)
@@ -296,6 +311,7 @@ All done!
 <a name="參考資料"/>
 
 ## 參考資料
+- python requests的content和text方法的区别 : https://blog.csdn.net/xie_0723/article/details/51361006
 - 7步帶你玩轉Jupyter Notebook（CentOS : https://kknews.cc/zh-tw/other/4expomq.html
 - 自己架一個 jupyter remote machine : https://medium.com/@chen.ishi/%E8%87%AA%E5%B7%B1%E6%9E%B6%E4%B8%80%E5%80%8B-jupyter-remote-machine-4de7122ba272
 - 連接到遠程服務器上的Jupyter : https://www.digitalocean.com/community/tutorials/how-to-install-run-connect-to-jupyter-notebook-on-remote-server
