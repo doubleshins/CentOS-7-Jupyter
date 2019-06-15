@@ -200,6 +200,29 @@ r_dict = r.json()
 print(r_dict['form'])
 ```
 
+- 實驗(3) : https://httpbin.org/basic-auth/corey/testing
+- 帳號 : corey
+- 密碼 : testing
+```python
+import requests
+
+r = requests.get('https://httpbin.org/basic-auth/corey/testing', auth=('corey','testing'))
+
+print(r.text)
+```
+
+- 實驗(4) : https://httpbin.org/delay/1
+- 延遲防止
+```python
+import requests
+
+r = requests.get('https://httpbin.org/delay/1', timeout=3)
+
+print(r)
+```
+
+
+
 ## 爬蟲小人生(1)
 #### 把網站上面的資料複製下來，一筆資料很容易複製，那一千筆呢?，不管是圖片還是文字資料，這就是爬蟲
 - Python code(Ctrl + Enter編譯)
@@ -390,3 +413,5 @@ All done!
 - 五分钟教会你建立Jupyter notebook服务器 : https://python.freelycode.com/contribution/detail/846
 - Day-1 Python爬蟲小人生(1) : https://ithelp.ithome.com.tw/articles/10202121
 - How to Install Python 3 on CentOS 7 : https://linuxize.com/post/how-to-install-python-3-on-centos-7/
+## Youtube : 
+- Python Requests Tutorial: Request Web Pages, Download Images, POST Data, Read JSON, and More : https://www.youtube.com/watch?v=tb8gHvYlCFs
