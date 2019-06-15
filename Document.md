@@ -119,7 +119,7 @@ c.ContentsManager.root_dir = '/data/jupyter/root'
 
 ![image](https://github.com/doubleshins/CentOS-7-Jupyter/blob/master/img/1asf.PNG)
 
-- <Response [200]>
+- Response
 
 ```python
 import requests
@@ -381,6 +381,7 @@ All done!
 <a name="參考資料"/>
 
 ## 參考資料
+- Requests库详解 : https://www.jianshu.com/p/ada99b7880a6
 - python requests的content和text方法的区别 : https://blog.csdn.net/xie_0723/article/details/51361006
 - 7步帶你玩轉Jupyter Notebook（CentOS : https://kknews.cc/zh-tw/other/4expomq.html
 - 自己架一個 jupyter remote machine : https://medium.com/@chen.ishi/%E8%87%AA%E5%B7%B1%E6%9E%B6%E4%B8%80%E5%80%8B-jupyter-remote-machine-4de7122ba272
