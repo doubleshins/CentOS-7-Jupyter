@@ -119,15 +119,85 @@ c.ContentsManager.root_dir = '/data/jupyter/root'
 
 ![image](https://github.com/doubleshins/CentOS-7-Jupyter/blob/master/img/1asf.PNG)
 
-- 
+- <Response [200]>
+
 ```python
 import requests
 r = requests.get('https://www.youtube.com/')
 print(r)
 ```
-<Response [200]>
+
 ```python
 print(dir(r))
+```
+
+- 詳細資料
+```python
+print(help(r))
+```
+
+- 想要下載圖片? : https://www.penghu-nsa.gov.tw/FileDownload/Album/Big/20161012162551758864338.jpg
+- 以二進制格式打開一個文件只用於寫入
+```python
+with open('test.jpg','wb') as f:
+    f.write(r.content)
+```
+
+- 伺服器回應的狀態碼
+- 檢查狀態碼是否 OK
+```python
+print(r.status_code)
+print(r.ok)
+print(r.headers)
+```
+
+- 實驗(1) : https://httpbin.org/get
+- Get
+```python
+payload = {'page': 2, 'count': 25}
+r = requests.get('https://httpbin.org/get', params=payload)
+print(r.text)
+```
+
+```
+...
+  "args": {
+    "count": "25", 
+    "page": "2"
+  }, 
+...
+```
+
+```
+print(r.url)
+```
+
+- 實驗(2) : https://httpbin.org/post
+- Post
+
+```python
+r = requests.post('https://httpbin.org/post', data=payload)
+```
+
+```
+...
+  "args": {}, 
+  "data": "", 
+  "files": {}, 
+  "form": {
+    "count": "25", 
+    "page": "2"
+  }, 
+...
+```
+
+```python
+print(r.json())
+```
+
+```python
+r_dict = r.json()
+print(r_dict['form'])
 ```
 
 ## 爬蟲小人生(1)
