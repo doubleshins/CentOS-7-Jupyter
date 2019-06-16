@@ -376,11 +376,10 @@ for i in range(3): #往上爬3頁
 
 ```python
 import requests
-import urllib.request
+
 from bs4 import BeautifulSoup
 import os
-import time
-import base64
+
 
 url = 'https://www.dcard.tw/f/pet'
 photolimit = 10
