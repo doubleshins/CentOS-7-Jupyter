@@ -372,37 +372,63 @@ for i in range(3): #往上爬3頁
 ```
 
 ## 爬蟲(2)
-- 以google圖片: https://www.google.com/search?q=%E5%91%A8%E5%AD%90%E7%91%9C&source=lnms&tbm=isch&sa=X&sqi=2&ved=0ahUKEwiVquLdr-jiAhViLH0KHfFCBecQ_AUIECgB&biw=1536&bih=750
+- Dcard爬蟲實作
 
-- 目標
-```
-<img alt="「周子瑜」的圖片搜尋結果" height="148" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLHKmn3kp3A6JFGKuNmRs7Gz7hdhrm_eY2gNUG20Wtq_g_BMqwHwl3cgG07A" width="148"/>
-```
-
-- Google user-agent限制
 ```python
 import requests
 import urllib.request
 from bs4 import BeautifulSoup
 import os
 import time
-url = 'https://www.google.com/search?q=%E5%91%A8%E5%AD%90%E7%91%9C&source=lnms&tbm=isch&sa=X&sqi=2&ved=0ahUKEwiVquLdr-jiAhViLH0KHfFCBecQ_AUIECgB&biw=1536&bih=750'
+import base64
+
+url = 'https://www.dcard.tw/f/pet'
 photolimit = 10
 headers = {'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36'}
 
 response = requests.get(url,headers = headers) #使用header避免訪問受到限制
 soup = BeautifulSoup(response.content, 'html.parser')
 sfa = soup.find_all('THL2l')
-sel = soup.select(".rg_ic.rg_i") #標題
+sel = soup.select(".PostEntry_image_1E6Mix") #標題
 
 
-folder_path ='./photo/'
-print(sel)
+dirname = 'images'
+#print(sel)
+
+if not os.path.isdir(dirname):  # 檢查目錄是否存在 
+        os.mkdir(dirname)
+
+
+
+
+for index,item in enumerate(sel):
+    #print(item["style"])
+    
+    html = item["style"]
+ 
+    img_url = re.findall(r"\((.+?)\)",html)
+    # 藉由re.findall出來的是list 所以這裏我宣告找第一個，也就是只有一個
+    #print(img_url)
+    img_url = img_url[0]
+    #print(img_url) #debug 用，來看看到底輸出是否是預期的結果
+    
+    
+    
+    filename = img_url.split('/')[-1]
+    
+    
+    #再發出一個request，然後建立檔案把編碼寫入檔案中
+    pic=requests.get(img_url)
+    imgcontent = pic.content
+    
+    
+    pic_out = open(os.path.join(dirname,filename),'wb')
+    pic_out.write(imgcontent)
+    pic_out.close()
+    print(index+1, img_url,filename)
 ```
 
 
-```python
-```
 
 
 
