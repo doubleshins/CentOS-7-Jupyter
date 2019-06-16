@@ -468,6 +468,7 @@ All done!
 <a name="參考資料"/>
 
 ## 參考資料
+- Python 走入現實：來爬蟲吧(3) : https://ithelp.ithome.com.tw/articles/10203352
 - Requests库详解 : https://www.jianshu.com/p/ada99b7880a6
 - python requests的content和text方法的区别 : https://blog.csdn.net/xie_0723/article/details/51361006
 - 7步帶你玩轉Jupyter Notebook（CentOS : https://kknews.cc/zh-tw/other/4expomq.html
@@ -479,3 +480,4 @@ All done!
 - How to Install Python 3 on CentOS 7 : https://linuxize.com/post/how-to-install-python-3-on-centos-7/
 ## Youtube : 
 - Python Requests Tutorial: Request Web Pages, Download Images, POST Data, Read JSON, and More : https://www.youtube.com/watch?v=tb8gHvYlCFs
+
