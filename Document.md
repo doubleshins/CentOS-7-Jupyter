@@ -327,64 +327,49 @@ for index, item in enumerate(sfa[:10]):
     print("{0:2}. {1}".format(index + 1, item.text.strip()))
 ```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## 藉由擷取上一頁a標籤裡的網址來GET上一頁的網頁
 - 看板MobileComm : https://www.ptt.cc/bbs/MobileComm/index.html
 
-```python
-import requests
-from bs4 import BeautifulSoup
-r = requests.get("https://www.ptt.cc/bbs/joke/index.html")
-soup = BeautifulSoup(r.text,"html.parser")
-u = soup.select("div.btn-group.btn-group-paging a")#上一頁按鈕的a標籤
-url = "https://www.ptt.cc"+ u[1]["href"] #組合出上一頁的網址
-print(url)
 ```
-#### 需要擷取多頁(ex:3頁)，所以需要重新撰寫程式碼，藉由迴圈來重複GET網頁
+主頁【 1 】 : https://www.ptt.cc/bbs/joke/index.html
+1 [kuso] 突然想韓妳 https://www.ptt.cc/bbs/joke/M.1560687149.A.778.html
+2 [公告] joke版規 (2018/03/26 更新) https://www.ptt.cc/bbs/joke/M.1522053106.A.755.html
+
+主頁【 2 】 : https://www.ptt.cc/bbs/joke/index6546.html
+1 [猜謎] 為何同志只會講一堆屁話 https://www.ptt.cc/bbs/joke/M.1560663012.A.287.html
+2 [笑話] 韓導去看腦科 https://www.ptt.cc/bbs/joke/M.1560665092.A.E0F.html
+3 [耍冷] 老公生氣變成gay（填問卷發p幣） https://www.ptt.cc/bbs/joke/M.1560665122.A.E27.html
+```
+
 ```python
 import requests
 from bs4 import BeautifulSoup
 url = "https://www.ptt.cc/bbs/joke/index.html"
-for i in range(30): #往上爬3頁
+
+r = requests.get(url)
+soup = BeautifulSoup(r.text,"html.parser")
+sel = soup.select("div.title a") #標題
+u = soup.select("div.btn-group.btn-group-paging a") #a標籤
+
+print(u)
+```
+
+#### 完整程式碼，藉由迴圈來重複GET網頁
+```python
+import requests
+from bs4 import BeautifulSoup
+url = "https://www.ptt.cc/bbs/joke/index.html"
+for i in range(3): #往上爬3頁
     r = requests.get(url)
     soup = BeautifulSoup(r.text,"html.parser")
     sel = soup.select("div.title a") #標題
     u = soup.select("div.btn-group.btn-group-paging a") #a標籤
-    print ("本頁的URL為"+url)
+    print ("主頁【",i+1,"】 : " + url)
     url = "https://www.ptt.cc"+ u[1]["href"] #上一頁的網址
-
-    for s in sel: #印出網址跟標題
-        print(s["href"],s.text)
+    for index, item in enumerate(sel): #印出網址跟標題
+        print(index +1,item.text, "https://www.ptt.cc"+item["href"])
+    print ("")  
 ```
-
-
-
-
-
-
-
 
 ## 爬蟲小人生(4)
 - 以google圖片: https://www.google.com/search?q=%E5%91%A8%E5%AD%90%E7%91%9C&source=lnms&tbm=isch&sa=X&sqi=2&ved=0ahUKEwiVquLdr-jiAhViLH0KHfFCBecQ_AUIECgB&biw=1536&bih=750
