@@ -371,13 +371,8 @@ for i in range(3): #往上爬3頁
     print ("")  
 ```
 
-## 爬蟲小人生(4)
+## 爬蟲(2)
 - 以google圖片: https://www.google.com/search?q=%E5%91%A8%E5%AD%90%E7%91%9C&source=lnms&tbm=isch&sa=X&sqi=2&ved=0ahUKEwiVquLdr-jiAhViLH0KHfFCBecQ_AUIECgB&biw=1536&bih=750
-
-1.目標
-```
-<img alt="「周子瑜」的圖片搜尋結果" height="148" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLHKmn3kp3A6JFGKuNmRs7Gz7hdhrm_eY2gNUG20Wtq_g_BMqwHwl3cgG07A" width="148"/>
-```
 
 ```python
 import requests
@@ -390,23 +385,18 @@ photolimit = 10
 headers = {'User-Agent': 'Mozilla/5.0'}
 response = requests.get(url,headers = headers) #使用header避免訪問受到限制
 soup = BeautifulSoup(response.content, 'html.parser')
-items = soup.find_all('img')
-folder_path ='./photo/'
-if (os.path.exists(folder_path) == False): #判斷資料夾是否存在
-    os.makedirs(folder_path) #Create folder
-for index , item in enumerate (items):
-    if (item and index < photolimit ):
-        html = requests.get(item.get('src')) # use 'get' to get photo link path , requests = send request
-        img_name = folder_path + str(index + 1) + '.png'
-        with open(img_name,'wb') as file: #以byte的形式將圖片數據寫入
-            file.write(html.content)
-            file.flush()
-        file.close()
-        print('第 %d 張' % (index + 1))
-        time.sleep(1)
+sfa = soup.find_all('img')
 
-print("----爬蟲---結束---")
+folder_path ='./photo/'
+print(sfa)
 ```
+
+1.目標
+```
+<img alt="「周子瑜」的圖片搜尋結果" height="148" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLHKmn3kp3A6JFGKuNmRs7Gz7hdhrm_eY2gNUG20Wtq_g_BMqwHwl3cgG07A" width="148"/>
+```
+
+
 
 
 
