@@ -221,8 +221,6 @@ r = requests.get('https://httpbin.org/delay/1', timeout=3)
 print(r)
 ```
 
-
-
 ## 爬蟲小人生(1)
 #### 把網站上面的資料複製下來，一筆資料很容易複製，那一千筆呢?，不管是圖片還是文字資料，這就是爬蟲
 - Python code(Ctrl + Enter編譯)
@@ -257,7 +255,52 @@ sel = soup.select("div.title a") #取HTML標中的 <div class="title"></div> 中
 ```
 for item in sel:
     print(item) 
-```    
+```
+
+
+## 上一頁
+- 看板MobileComm : https://www.ptt.cc/bbs/MobileComm/index.html
+
+#### 藉由擷取上一頁a標籤裡的網址來GET上一頁的網頁下來了!!
+```python
+import requests
+from bs4 import BeautifulSoup
+r = requests.get("https://www.ptt.cc/bbs/joke/index.html")
+soup = BeautifulSoup(r.text,"html.parser")
+u = soup.select("div.btn-group.btn-group-paging a")#上一頁按鈕的a標籤
+url = "https://www.ptt.cc"+ u[1]["href"] #組合出上一頁的網址
+print(url)
+```
+#### 需要擷取多頁(ex:3頁)，所以需要重新撰寫程式碼，藉由迴圈來重複GET網頁
+```python
+import requests
+from bs4 import BeautifulSoup
+url = "https://www.ptt.cc/bbs/joke/index.html"
+for i in range(30): #往上爬3頁
+    r = requests.get(url)
+    soup = BeautifulSoup(r.text,"html.parser")
+    sel = soup.select("div.title a") #標題
+    u = soup.select("div.btn-group.btn-group-paging a") #a標籤
+    print ("本頁的URL為"+url)
+    url = "https://www.ptt.cc"+ u[1]["href"] #上一頁的網址
+
+    for s in sel: #印出網址跟標題
+        print(s["href"],s.text)
+```
+
+
+## 
+- 
+
+
+```python
+
+```
+
+
+
+
+
 
 ## 爬蟲小人生(2)
 - 以Dcard : https://www.dcard.tw/f
