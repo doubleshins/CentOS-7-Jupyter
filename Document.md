@@ -25,8 +25,8 @@ vmnames="python_min"
 ```
 
 ## 啟用SCL
-#### CentOS 7附帶Python 2.7.5。
-#### SCL將允許您安裝較新版本的python 3.x以及默認的python v2.7.5。
+- CentOS 7附帶Python 2.7.5。
+- SCL將允許您安裝較新版本的python 3.x以及默認的python v2.7.5。
 ```bash
 # ssh dic@192.168.19.13
 # python -V
@@ -61,7 +61,7 @@ Python 3.6.3
 ```
 
 ## CentOS上安裝Pip
-#### pip是一個包管理系統，它簡化了用Python編寫的軟件包的安裝和管理。
+- pip是一個包管理系統，它簡化了用Python編寫的軟件包的安裝和管理。
 ```bash
 - 是一個介於IDE(Pycharm, Spider)以及Editor(text,VScode, 記事本)之間的一個讓你可以寫code的工具
 # pip install jupyter
@@ -119,7 +119,8 @@ c.ContentsManager.root_dir = '/data/jupyter/root'
 
 ![image](https://github.com/doubleshins/CentOS-7-Jupyter/blob/master/img/1asf.PNG)
 
-- Response
+- (Ctrl + Enter編譯)
+- 查看 Response 回應
 
 ```python
 import requests
@@ -222,46 +223,44 @@ print(r)
 ```
 
 ## 爬蟲小人生(1)
-#### 把網站上面的資料複製下來，一筆資料很容易複製，那一千筆呢?，不管是圖片還是文字資料，這就是爬蟲
-- Python code(Ctrl + Enter編譯)
+- 把網站上面的資料複製下來，一筆資料很容易複製，那一千筆呢?，不管是圖片還是文字資料，這就是爬蟲
 - 以PTTjoke版為例 : https://www.ptt.cc/bbs/joke/index.html
 
-因為我想選取的是網頁裡的文章標題，所以soup.select中放的才是div.title a
+- 因為我想選取的是網頁裡的文章標題，所以soup.select中放的才是div.title a
 ```
 <div class="title">
 	<a href="/bbs/joke/M.1560406106.A.D32.html">[ＸＤ] 二師兄</a>		
 </div>
 ```
 
-1.先將剛剛下載的Python套件import進來
+- 1.先將剛剛下載的Python套件import進來
 ```python
 import requests
 from bs4 import BeautifulSoup 
 
 ```
-2.將網頁Get下來
+- 2.將網頁Get下來
 ```python
 url = "https://www.ptt.cc/bbs/joke/index.html"
 r = requests.get(url) #將此頁面的HTML GET下來
 print(r.text) #印出HTML
 ```
-3.將抓下來的資料用Beautifulsoup4轉為HTML的parser
+- 3.將抓下來的資料用Beautifulsoup4轉為HTML的parser
 ```python
 soup = BeautifulSoup(r.text,"html.parser") #將網頁資料以html.parser
 sel = soup.select("div.title a") #取HTML標中的 <div class="title"></div> 中的<a>標籤存入sel
 ```
 
-4.最後寫一個迴圈將爬下來的文章標題印出來
+- 4.最後寫一個迴圈將爬下來的文章標題印出來
 ```
 for item in sel:
     print(item) 
 ```
 
 
-## 上一頁
+## 藉由擷取上一頁a標籤裡的網址來GET上一頁的網頁
 - 看板MobileComm : https://www.ptt.cc/bbs/MobileComm/index.html
 
-#### 藉由擷取上一頁a標籤裡的網址來GET上一頁的網頁下來了!!
 ```python
 import requests
 from bs4 import BeautifulSoup
