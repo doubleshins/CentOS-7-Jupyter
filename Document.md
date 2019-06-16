@@ -374,6 +374,12 @@ for i in range(3): #往上爬3頁
 ## 爬蟲(2)
 - 以google圖片: https://www.google.com/search?q=%E5%91%A8%E5%AD%90%E7%91%9C&source=lnms&tbm=isch&sa=X&sqi=2&ved=0ahUKEwiVquLdr-jiAhViLH0KHfFCBecQ_AUIECgB&biw=1536&bih=750
 
+- 目標
+```
+<img alt="「周子瑜」的圖片搜尋結果" height="148" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLHKmn3kp3A6JFGKuNmRs7Gz7hdhrm_eY2gNUG20Wtq_g_BMqwHwl3cgG07A" width="148"/>
+```
+
+- Google user-agent限制
 ```python
 import requests
 import urllib.request
@@ -382,21 +388,21 @@ import os
 import time
 url = 'https://www.google.com/search?q=%E5%91%A8%E5%AD%90%E7%91%9C&source=lnms&tbm=isch&sa=X&sqi=2&ved=0ahUKEwiVquLdr-jiAhViLH0KHfFCBecQ_AUIECgB&biw=1536&bih=750'
 photolimit = 10
-headers = {'User-Agent': 'Mozilla/5.0'}
+headers = {'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36'}
+
 response = requests.get(url,headers = headers) #使用header避免訪問受到限制
 soup = BeautifulSoup(response.content, 'html.parser')
-sfa = soup.find_all('img')
+sfa = soup.find_all('THL2l')
+sel = soup.select(".rg_ic.rg_i") #標題
+
 
 folder_path ='./photo/'
-print(sfa)
-```
-
-1.目標
-```
-<img alt="「周子瑜」的圖片搜尋結果" height="148" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLHKmn3kp3A6JFGKuNmRs7Gz7hdhrm_eY2gNUG20Wtq_g_BMqwHwl3cgG07A" width="148"/>
+print(sel)
 ```
 
 
+```python
+```
 
 
 
