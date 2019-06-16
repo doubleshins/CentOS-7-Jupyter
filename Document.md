@@ -240,7 +240,7 @@ r = requests.get('https://httpbin.org/delay/1', timeout=3)
 print(r)
 ```
 
-## 爬蟲小人生(1)
+## 爬蟲(1)
 - 把網站上面的資料複製下來，一筆資料很容易複製，那一千筆呢?，不管是圖片還是文字資料，這就是爬蟲
 - 以PTTjoke版為例 : https://www.ptt.cc/bbs/joke/index.html
 
@@ -275,6 +275,80 @@ for item in sel:
     print(item) 
 ```
 
+- 完整程式碼-PTT
+```python
+import requests
+from bs4 import BeautifulSoup 
+
+url = "https://www.ptt.cc/bbs/joke/index.html"
+r = requests.get(url)
+soup = BeautifulSoup(r.text,"html.parser") 
+sel = soup.select("div.title a")
+print("PTT 最新前五文章標題")
+
+for index, item in enumerate(sel):
+    print("{0:2}.{1}".format(index+1, item.text.strip()))
+```
+
+- 以Dcard : https://www.dcard.tw/f
+- 選取的目標
+```
+<h3 class="PostEntry_title_H5o4dj PostEntry_unread_2U217-">XXXXXX</h3>
+```
+
+- 完整程式碼-Dcard-1
+```python
+import requests
+from bs4 import BeautifulSoup 
+
+r = requests.get("https://www.dcard.tw/f")
+soup = BeautifulSoup(r.text,"html.parser")
+sel = soup.select("div.PostEntry_content_g2afgv h3")
+print('Dcard 熱門前十文章標題：')
+
+for index,item in enumerate(sel[:10]):
+    print(index+1, item.text)
+```
+
+- 完整程式碼--Dcard-2
+- soup.find_all
+```python
+import requests
+from bs4 import BeautifulSoup
+import re
+
+url = 'https://www.dcard.tw/f'
+r = requests.get(url)
+soup = BeautifulSoup(r.text, 'html.parser')
+sfa = soup.find_all('h3', re.compile('PostEntry_title_'))
+print('Dcard 熱門前十文章標題：')
+
+for index, item in enumerate(sfa[:10]):
+    print("{0:2}. {1}".format(index + 1, item.text.strip()))
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## 藉由擷取上一頁a標籤裡的網址來GET上一頁的網頁
 - 看板MobileComm : https://www.ptt.cc/bbs/MobileComm/index.html
@@ -306,62 +380,11 @@ for i in range(30): #往上爬3頁
 ```
 
 
-## 
-- 
-
-
-```python
-
-```
 
 
 
 
 
-
-## 爬蟲小人生(2)
-- 以Dcard : https://www.dcard.tw/f
-
-1.先將剛剛下載的Python套件import進來
-```
-<h3 class="PostEntry_title_H5o4dj PostEntry_unread_2U217-">（#持續更新）勇敢的臺灣女孩</h3>
-```
-
-```python
-import requests
-from bs4 import BeautifulSoup 
-r = requests.get("https://www.dcard.tw/f")
-```
-
-```python
-soup = BeautifulSoup(r.text,"html.parser") #將網頁資料以html.parser
-sel = soup.select("div.PostEntry_content_g2afgv h3") #取HTML標中的 <div class="title"></div> 中的<a>標籤存入sel
-for index,item in enumerate(sel):
-    print(item) 
-```
-
-## 爬蟲小人生(3)
-- 以Dcard : https://www.dcard.tw/f
-
-1.目標
-```
-<h3 class="PostEntry_title_H5o4dj PostEntry_unread_2U217-">（#持續更新）勇敢的臺灣女孩</h3>
-
-soup.find_all('h3')
-```
-
-```python
-import requests
-from bs4 import BeautifulSoup
-import re
-url = 'https://www.dcard.tw/f'
-resp = requests.get(url)
-soup = BeautifulSoup(resp.text, 'html.parser')
-dcard_title = soup.find_all('h3', re.compile('PostEntry_title_'))
-print('Dcard 熱門前十文章標題：')
-for index, item in enumerate(dcard_title[:10]):
-    print("{0:2d}. {1}".format(index + 1, item.text.strip()))
-```
 
 ## 爬蟲小人生(4)
 - 以google圖片: https://www.google.com/search?q=%E5%91%A8%E5%AD%90%E7%91%9C&source=lnms&tbm=isch&sa=X&sqi=2&ved=0ahUKEwiVquLdr-jiAhViLH0KHfFCBecQ_AUIECgB&biw=1536&bih=750
