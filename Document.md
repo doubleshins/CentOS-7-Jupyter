@@ -129,19 +129,13 @@ print(r)
 ```
 
 ```python
+顯示物件
 print(dir(r))
 ```
 
-- 詳細資料
 ```python
+詳細資料
 print(help(r))
-```
-
-- 想要下載圖片? : https://www.penghu-nsa.gov.tw/FileDownload/Album/Big/20161012162551758864338.jpg
-- 以二進制格式打開一個文件只用於寫入
-```python
-with open('test.jpg','wb') as f:
-    f.write(r.content)
 ```
 
 - 伺服器回應的狀態碼
@@ -150,6 +144,30 @@ with open('test.jpg','wb') as f:
 print(r.status_code)
 print(r.ok)
 print(r.headers)
+```
+
+- 想要下載圖片? : https://www.penghu-nsa.gov.tw/FileDownload/Album/Big/20161012162551758864338.jpg
+- 以二進制格式打開一個文件只用於寫入
+
+
+```python
+二進制格式
+import requests
+r = requests.get('https://www.penghu-nsa.gov.tw/FileDownload/Album/Big/20161012162551758864338.jpg') #變數名稱為pic
+print(r.content)
+```
+
+- 圖片爬蟲
+- w : 寫入檔案。游標的位置會在檔案的最前面，如果沒有檔案會自動建立檔案，如果已經有檔案，會把檔案內的資料全部清空
+- b : 以二進位方式打開
+```python
+import requests
+r = requests.get('https://www.penghu-nsa.gov.tw/FileDownload/Album/Big/20161012162551758864338.jpg') #變數名稱為pic
+img2 = r.content #變數名稱命名為img2
+pic_out = open('myimg.png','wb') #img1.png為預存檔的圖片名稱
+pic_out.write(img2) #將get圖片存入img1.png
+pic_out.close() #關閉檔案(很重要)
+print("完成")
 ```
 
 - 實驗(1) : https://httpbin.org/get
