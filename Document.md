@@ -493,7 +493,7 @@ import requests
 sum = int(input("輸入註冊數量："))
 count = 1
 while count <= sum:
-    url='http://120.114.140.17/form.php'
+    url='XXXXXXX'
     r = requests.get(url)
     payload = {'acc': 'admin', 'pwd': password,'sub': 'submit'}
     r = requests.post(url, data=payload)
