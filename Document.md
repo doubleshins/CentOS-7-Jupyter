@@ -469,6 +469,67 @@ for line in arq:
 ```
 
 
+## 管理員查找器
+- https://raw.githubusercontent.com/the-c0d3r/admin-finder/master/wordlist.txt
+- 成功大學 : https://web.ncku.edu.tw
+- 大葉大學 : http://icourse.dyu.edu.tw
+
+python xx.py url xx.txt
+
+
+- 測試1
+```python
+import requests
+import sys
+
+url = sys.argv[1]
+
+
+lives = []
+
+
+arq = open(sys.argv[2],'r')
+lines = arq.readlines()
+arq.close
+```
+
+- 測試2
+```python
+import requests
+import sys
+
+url = sys.argv[1]
+
+
+lives = []
+
+
+arq = open(sys.argv[2],'r')
+lines = arq.readlines()
+arq.close
+
+
+for line in lines:
+    line= line.replace("\n","")
+    request = url+"/"+line
+    http = requests.get(request)
+    code = http.status_code
+    
+    if code != 301 and code != 404:
+        if not "Page not found" in http.content.decode('UTF-8'):           
+            print("[+] PAGE Found: "+request)
+            lives.append(request)
+        else:
+            print("[-] PAGE NotFound: "+request)
+    else:
+        print("[-] PAGE NotFound: "+request)
+print("完成!")
+for live in lives:
+    print(live)
+```
+
+
+
 
 ## 簡單的暴力註冊 requests lib
 
