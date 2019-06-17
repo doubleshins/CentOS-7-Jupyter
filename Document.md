@@ -373,58 +373,48 @@ for i in range(3): #往上爬3頁
 
 ## 爬蟲(2)
 - Dcard爬蟲實作
+- https://www.dcard.tw/f/pet
 
+- 目標
+```
+<div class="PostEntry_image_1E6Mix" style="background-image:url(https://imgur.dcard.tw/XXXX.jpg)"></div>
+```
+
+- 篩選soup.select
 ```python
 import requests
-
 from bs4 import BeautifulSoup
 import os
 
 
 url = 'https://www.dcard.tw/f/pet'
-photolimit = 10
 headers = {'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36'}
-
 response = requests.get(url,headers = headers) #使用header避免訪問受到限制
 soup = BeautifulSoup(response.content, 'html.parser')
 sfa = soup.find_all('THL2l')
 sel = soup.select(".PostEntry_image_1E6Mix") #標題
 
+print(sel)
+```
 
+- 迴圈get img url 下載圖片
+```python
 dirname = 'images'
-#print(sel)
-
 if not os.path.isdir(dirname):  # 檢查目錄是否存在 
-        os.mkdir(dirname)
-
-
-
-
+    os.mkdir(dirname)
 for index,item in enumerate(sel):
-    #print(item["style"])
-    
     html = item["style"]
- 
     img_url = re.findall(r"\((.+?)\)",html)
     # 藉由re.findall出來的是list 所以這裏我宣告找第一個，也就是只有一個
-    #print(img_url)
     img_url = img_url[0]
-    #print(img_url) #debug 用，來看看到底輸出是否是預期的結果
-    
-    
-    
-    filename = img_url.split('/')[-1]
-    
-    
+    filename = str(index + 1)+img_url.split('/')[-1]
     #再發出一個request，然後建立檔案把編碼寫入檔案中
     pic=requests.get(img_url)
     imgcontent = pic.content
-    
-    
     pic_out = open(os.path.join(dirname,filename),'wb')
     pic_out.write(imgcontent)
     pic_out.close()
-    print(index+1, img_url,filename)
+    print('第 %d 張' % (index + 1), img_url,filename)
 ```
 
 
