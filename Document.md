@@ -625,6 +625,7 @@ All done!
 
 
 ## 參考資料
+- 用Python爬取 Youtube 資訊 - 圖文課程 : https://hiskio.com/courses/112
 - Python 走入現實：來爬蟲吧(3) : https://ithelp.ithome.com.tw/articles/10203352
 - Requests库详解 : https://www.jianshu.com/p/ada99b7880a6
 - python requests的content和text方法的区别 : https://blog.csdn.net/xie_0723/article/details/51361006
