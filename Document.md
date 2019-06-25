@@ -624,9 +624,6 @@ All done!
 
 
 
-
-<a name="參考資料"/>
-
 ## 參考資料
 - Python 走入現實：來爬蟲吧(3) : https://ithelp.ithome.com.tw/articles/10203352
 - Requests库详解 : https://www.jianshu.com/p/ada99b7880a6
